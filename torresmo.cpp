@@ -78,7 +78,7 @@ void matriz_diagonal(){
     for(int i=0;i<101;++i){
         somaLinha = 0;
         for(int j=0;j<101;++j){
-            somaLinha += matriz[i][j]
+            somaLinha += matriz[i][j];
         }
         matriz2[i][i] = somaLinha;
     }
