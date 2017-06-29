@@ -8,18 +8,19 @@ char name[101][100]; //matriz de atributos
 int data[101][17]; //nome dos animaizinhos lalala
 int pepemoreno[5050];
 int matriz[101][101];
+int matriz2[101][101];
 
 //DECLARAÇÃO DE FUNÇÕES
 void read_file(); //leitura de dados e construção de tabela
 void compare(); //
 double distance_e(int a, int b);
-int converte_em_matriz();
+void zera_diagonal();
 
 int main(){
   double teste=exp(0.5);
-    read_file();
-    compare();
-    return 0;
+  read_file();
+  compare();
+  return 0;
 }
 
 void read_file(){
@@ -46,16 +47,12 @@ void compare(){
     double temp;
     for(int i=0;i<101;++i){
         for(int j=0;j<101;++j){
-            if(i!=j && j>i){
-                temp = exp(distance_e(i,i+1)/(2*pow(sigma,2)));
-                pepemoreno[((i*j)/2)] = temp;
-            }
+            matriz[i][j] = exp(distance_e(i,j)/(2*pow(sigma,2)));
         }
     }
-    converte_em_matriz();
-    faz_diagonal();
+    zera_diagonal();
 
-   }
+}
 
 double distance_e(int a, int b){
     float soma = 0;
@@ -65,19 +62,24 @@ double distance_e(int a, int b){
     return sqrt(soma);
 }
 
-void converte_em_matriz(){
-    int novamatriz[101][101];
+void zera_diagonal(){
     for(int i=0;i<101;++i){
-        for (int j = 0; j < 101; ++j)
-        {
-            if (i==j){
-                matriz[i][j]
-            }
-            matriz[i][j] = pepemoreno[i/2];
-        }
+        matriz [i][i] = 0;
     }
 }
 
-void faz_diagonal(){
-    for
+void matriz_diagonal(){
+    int somaLinha = 0;
+    for(int i=0;i<101;++i){
+        for(int j=0;j<101;++j){
+            if (i!=j) matriz2[i][j] = 0;
+        }
+    }
+    for(int i=0;i<101;++i){
+        somaLinha = 0;
+        for(int j=0;j<101;++j){
+            somaLinha += matriz[i][j]
+        }
+        matriz2[i][i] = somaLinha;
+    }
 }
