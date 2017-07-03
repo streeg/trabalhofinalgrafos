@@ -36,7 +36,7 @@ void read_file(){
     //--------LEITURA DE zoo.data
     FILE *arquivo;
     int k=0;
-    arquivo = fopen("lista_de_animais.in" ,"r+");
+    arquivo = fopen("pickles.in" ,"r+");
     while(fscanf(arquivo, "%s", name[k])!=EOF){
         for(int j=0;j<17;++j){
             fscanf(arquivo, "%d ", &data[k][j]);
