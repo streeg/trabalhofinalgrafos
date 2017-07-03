@@ -12,10 +12,10 @@ int matriz2[101][101];
 
 //DECLARAÇÃO DE FUNÇÕES
 void read_file(); //leitura de dados e construção de tabela
-void compare(); //
-double distance_e(int a, int b);
-void zera_diagonal();
-void matriz_diagonal();
+void compare(); //compara a distancia euclidiana entre dois pontos
+double distance_e(int a, int b); //função auxiliar para o calculo da distancia euclidiana
+void zera_diagonal(); //zera diagonal
+void matriz_diagonal(); //constroi matriz diagonal
 
 int main(){
   double teste=exp(0.5);
@@ -36,7 +36,7 @@ void read_file(){
     //--------LEITURA DE zoo.data
     FILE *arquivo;
     int k=0;
-    arquivo = fopen("pickles.in" ,"r+");
+    arquivo = fopen("lista_de_animais.in" ,"r+");
     while(fscanf(arquivo, "%s", name[k])!=EOF){
         for(int j=0;j<17;++j){
             fscanf(arquivo, "%d ", &data[k][j]);
@@ -57,7 +57,9 @@ void compare(){
     for(int i=0;i<101;++i){
         for(int j=0;j<101;++j){
             matriz[i][j] = exp(distance_e(i,j)/(2*pow(sigma,2)));
+//            printf("%d", matriz[i][j]);
         }
+//       printf("\n");
     }
     zera_diagonal();
 
@@ -67,6 +69,7 @@ double distance_e(int a, int b){
     float soma = 0;
     for (int i=0; i<size_att;++i){
         soma = soma + pow(data[a][i] - data[b][i],2);
+//        printf("%f\n", soma);
     }
     return sqrt(soma);
 }
