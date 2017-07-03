@@ -7,7 +7,7 @@
 char name[101][100]; //matriz de atributos.
 int data[101][17]; //nome dos animais.
 int pepemoreno[5050];
-int matriz[101][101];
+float matriz[101][101];
 int matriz2[101][101];
 
 //DECLARAÇÃO DE FUNÇÕES
@@ -57,7 +57,7 @@ void compare(){
     for(int i=0;i<101;++i){
         for(int j=0;j<101;++j){
             matriz[i][j] = exp(distance_e(i,j)/(2*pow(sigma,2)));
-//            printf("%d", matriz[i][j]);
+//           printf("%f", matriz[i][j]);
         }
 //       printf("\n");
     }
